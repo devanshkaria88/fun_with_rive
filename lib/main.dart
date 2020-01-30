@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -6,8 +7,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Rive Experiments',
+      home: MyHomePage(title: 'My experiments with RIVE'),
     );
   }
 }
@@ -29,8 +30,24 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        child: Container(
+          color: Colors.grey[700],
+          child: Stack(
+            children: <Widget>[
+              FlareActor(
+                'flare/Teddy.flr',
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.topCenter,
+              ),
+              Card(
+                child: Column(
+                  children: <Widget>[],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
